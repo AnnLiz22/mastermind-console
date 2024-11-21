@@ -40,7 +40,7 @@ public class Mastermind {
     System.out.println(" <<<<< secret code generated >>>>>\n");
   }
 
-  public String startInteraction() {
+  public void startInteraction() {
     Scanner scanner = new Scanner(System.in);
     System.out.println("What is your name?");
     String name = scanner.nextLine();
@@ -51,13 +51,11 @@ public class Mastermind {
       System.out.println("Let's start then!");
       setUserName(name);
       startGame();
-      return userName;
 
     } else if (userAnswer.toLowerCase().contains("no")) {
       System.out.println("If you change your mind, you know where tu find me!");
     }
     scanner.close();
-    return userName;
   }
 
   private List<String> getUserGuess() {
@@ -65,15 +63,14 @@ public class Mastermind {
     Scanner scanner = new Scanner(System.in);
     List<String> guess = new ArrayList<>();
 
-    System.out.printf(ConsoleColors.CYAN + "Focus, %s! ", userName + ConsoleColors.RESET);
-
     while (guess.size() < CODE_LENGTH) {
       String color = scanner.nextLine().trim().toUpperCase();
-      if (color.equals(COLORS[0]) || color.equals(COLORS[1]) || color.equals(COLORS[2])
-          || color.equals(COLORS[3]) || color.equals(COLORS[4]) || color.equals(COLORS[5])) {
+      if ((!guess.contains(color)) && (color.equals(COLORS[0]) || color.equals(COLORS[1]) || color.equals(COLORS[2])
+          || color.equals(COLORS[3]) || color.equals(COLORS[4]) || color.equals(COLORS[5]))) {
         guess.add(color);
+
       } else {
-        System.out.printf("%s, you need to choose the exact color from the list.", userName);
+        System.out.printf("%s, you need to choose the exact color from the list. Colors can't duplicate.", userName);
       }
     }
     return guess;
