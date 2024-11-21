@@ -15,4 +15,6 @@ public class ConsoleColors {
   public static final String WHITE = "\033[0;37m";   // WHITE
   public static final String ORANGE = "\033[38;5;208m"; // ORANGE
 
+  // ANSI escape codes for background colors
+  public static final String BG_GREY = "\033[48;5;8m";
 }
