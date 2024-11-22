@@ -12,6 +12,5 @@ public class Main {
 
     Mastermind mastermind = new Mastermind();
     mastermind.startInteraction();
-   // mastermind.startGame();
   }
 }
