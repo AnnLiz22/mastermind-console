@@ -104,7 +104,7 @@ public class Mastermind {
         correctColor + ". ";
   }
 
-  public void startGame() {
+  private void startGame() {
 
     int attempts = 0;
     String setOfColors =
